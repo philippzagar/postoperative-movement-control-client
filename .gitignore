@@ -1,3 +1,13 @@
 /desktop.ini
 /client/.idea/
 /client/node_modules
+/client/public/images/desktop.ini
+/client/src/actions/desktop.ini
+/client/src/reducers/desktop.ini
+/client/src/firebase/desktop.ini
+/client/src/selectors/desktop.ini
+/client/src/store/desktop.ini
+/client/src/tests/desktop.ini
+/client/src/styles/base/desktop.ini
+/client/src/styles/components/desktop.ini
+/client/src/routers/desktop.ini
