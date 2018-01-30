@@ -23,6 +23,11 @@ export const Header = ({ startLogout }) => (
                         </Link>
                     </NavItem>
                     <NavItem eventKey={2}>
+                        <Link to="/diagram">
+                            Diagram
+                        </Link>
+                    </NavItem>
+                    <NavItem eventKey={3}>
                         <Link to="/settings">
                             Settings
                         </Link>
