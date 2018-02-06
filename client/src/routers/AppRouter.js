@@ -7,9 +7,11 @@ import Settings from '../components/Settings'
 import NotFoundPage from '../components/NotFoundPage';
 import LoginEmail from '../components/LoginEmail';
 import ResetPassword from '../components/ResetPassword'
+import EnterEmail from '../components/EnterEmail'
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import EnterPassword from "../components/EnterPassword";
 
 export const history = createHistory();
 
@@ -19,7 +21,9 @@ const AppRouter = () => (
       <Switch>
           <PublicRoute path="/" component={LoginPage} exact={true} />
           <PublicRoute path="/loginEmail" component={LoginEmail}/>
-          <PublicRoute path="/resetpassword" component={ResetPassword}/>
+          <PublicRoute path="/resetpassword" component={EnterEmail}/>
+          <PublicRoute path="/resetpasswordrequest" component={EnterEmail}/>
+          <PublicRoute path="/changepassword" component={EnterPassword}/>
           <PrivateRoute path="/dashboard" component={DashboardPage} />
           <PrivateRoute path="/diagram" component={Diagram}/>
           <PrivateRoute path="/settings" component={Settings}/>

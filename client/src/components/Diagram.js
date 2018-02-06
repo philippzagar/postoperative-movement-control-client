@@ -39,8 +39,8 @@ class Diagram extends React.Component {
         });
 
         instance.post("users/login", {
-            email: "markus0793@web.de",
-            password: "markus"
+            email: "bojicsebastian@gmail.com",
+            password: "Sebastian"
         }).then((response) => {
             const token = response.headers["x-auth"];
 
@@ -53,7 +53,7 @@ class Diagram extends React.Component {
                 maxContentLength: 1000000
             });
 
-            const count = 500;
+            const count = 1700;
 
             instance.get(`findGyroLastValues/${count}`).then((response) => {
                 console.log(response);
