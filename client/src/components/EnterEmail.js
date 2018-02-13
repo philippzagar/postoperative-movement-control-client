@@ -7,6 +7,7 @@ class EnterEmail extends React.Component {
     constructor(props) {
         super(props);
 
+        this.getValidationStateEmail = this.getValidationStateEmail.bind(this);
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
         this.handleNetworkRequest = this.handleNetworkRequest.bind(this);
 
@@ -28,7 +29,9 @@ class EnterEmail extends React.Component {
         this.setState({ email: e.target.value });
     }
 
-    handleNetworkRequest() {
+    handleNetworkRequest(e) {
+        e.preventDefault();
+
         let instance = axios.create({
             baseURL: 'https://zagar.spdns.org/',
             timeout: 5000
@@ -37,32 +40,43 @@ class EnterEmail extends React.Component {
         instance.post("users/resetpassword", {
             email: this.state.email
         }).then((response) => {
-            if(response.body["status"] === "OK") {
+            console.log(response);
+
+            if(response.data["status"] === "OK") {
+                console.log("Email sent");
+
                 // Render on the HTML Page
-                this.setState({
-                   status: "OK"
+                this.setState(() => {
+                    return {
+                       status: "OK"
+                    };
                 });
-            } else if (response.body["status"] === "ERROR") {
+
+                console.log(this.state);
+            } else if (response.data["status"] === "ERROR") {
                 // Render error
-                this.setState({
-                    status: "ERROR"
+                this.setState(() => {
+                    return {
+                        status: "ERROR"
+                    };
                 });
             } else {
                 console.log("Response failed!");
             }
         }).catch((e) => {
+            alert("Catch");
             console.log(e);
         });
     }
 
     render() {
-        switch (this.state) {
+        switch (this.state.status) {
             case 'OK':
                 return (
                     <div>
                         <Grid>
                             <Row>
-                                <Col xs={12}>
+                                <Col xs={12} sm={10} md={8} lg={6}>
                                     <h2>Reset your password</h2>
 
                                     <h4>Mail was sent successfully to {this.state.email}!</h4>
@@ -77,7 +91,7 @@ class EnterEmail extends React.Component {
                     <div>
                         <Grid>
                             <Row>
-                                <Col xs={12}>
+                                <Col xs={12} sm={10} md={8} lg={6}>
                                     <h2>Reset your password</h2>
 
                                     <h4>An error occurred while requesting a password reset!</h4>
@@ -92,13 +106,13 @@ class EnterEmail extends React.Component {
                     <div>
                         <Grid>
                             <Row>
-                                <Col xs={12}>
+                                <Col xs={12} sm={10} md={8} lg={6}>
                                     <h2>Reset your password</h2>
                                 </Col>
                             </Row>
 
                             <Row>
-                                <Col xs={12}>
+                                <Col xs={12} sm={10} md={8} lg={6}>
                                     <form>
                                         <FormGroup
                                             controlId="Email"

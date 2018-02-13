@@ -20,14 +20,13 @@ const AppRouter = () => (
     <div>
       <Switch>
           <PublicRoute path="/" component={LoginPage} exact={true} />
-          <PublicRoute path="/loginEmail" component={LoginEmail}/>
-          <PublicRoute path="/resetpassword" component={EnterEmail}/>
-          <PublicRoute path="/resetpasswordrequest" component={EnterEmail}/>
-          <PublicRoute path="/changepassword" component={EnterPassword}/>
+          <Route path="/loginEmail" component={LoginEmail} />
+          <Route path="/resetpassword" component={EnterEmail}/>
+          <Route path="/resetpasswordrequest/:key" component={EnterPassword}/>
           <PrivateRoute path="/dashboard" component={DashboardPage} />
           <PrivateRoute path="/diagram" component={Diagram}/>
           <PrivateRoute path="/settings" component={Settings}/>
-        <Route component={NotFoundPage} />
+          <Route component={NotFoundPage} />
       </Switch>
     </div>
   </Router>

@@ -8,7 +8,7 @@ export const LoginPage = ({ startGoogleLogin, startFacebookLogin }) => (
   <div className="box-layout">
       <Grid>
           <Row>
-              <Col xs={12}>
+              <Col xs={12} sm={12} md={12} lg={12}>
                   <Jumbotron>
                       <h1>Diplomarbeit HTL Braunau</h1>
                       <p>A solution for the quicker cure of tendon and ligament injuries.</p>
