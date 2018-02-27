@@ -6,6 +6,7 @@ import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
 import './styles/styles.scss';
 //import 'react-dates/lib/css/_datepicker.css';
+import '../node_modules/react-progress-button/react-progress-button.css'
 import { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
 
@@ -27,7 +28,15 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    store.dispatch(login(user.uid));
+    store.dispatch(login({
+        uid: user.uid,
+        email: "firebase",
+        firstName: "firebase",
+        lastName: "firebase",
+        access: "firebase",
+        token: "firebase",
+        auth: "firebase"
+    }));
     renderApp();
     if (history.location.pathname === '/') {
       history.push('/dashboard');

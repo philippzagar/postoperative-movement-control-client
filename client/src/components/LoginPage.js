@@ -24,11 +24,17 @@ export const LoginPage = ({ startGoogleLogin, startFacebookLogin }) => (
                             Sign in with Facebook
                         </button>
 
-                        <Link to="/loginEmail">
+                        <Link to="/register">
                             <Button bsStyle="primary">
-                                Login with eMail/Password
+                                Register with eMail/Password
                             </Button>
                         </Link>
+
+                      <Link to="/loginemailpassword">
+                          <Button bsStyle="danger">
+                              Login with eMail/Password
+                          </Button>
+                      </Link>
 
 
                         <Link to="/resetpassword">
