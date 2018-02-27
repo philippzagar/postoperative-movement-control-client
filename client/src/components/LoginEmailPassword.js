@@ -111,7 +111,8 @@ class LoginEmailPassword extends React.Component {
                                     lastName: data.lastName,
                                     access: "patient",
                                     token: token,
-                                    auth: "normal"
+                                    auth: "normal",
+                                    loginTime: 0
                                 }));
                                 history.push('/dashboard');
                             }.bind(this), 500);

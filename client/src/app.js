@@ -35,7 +35,8 @@ firebase.auth().onAuthStateChanged((user) => {
         lastName: "firebase",
         access: "firebase",
         token: "firebase",
-        auth: "firebase"
+        auth: "firebase",
+        loginTime: 0
     }));
     renderApp();
     if (history.location.pathname === '/') {
