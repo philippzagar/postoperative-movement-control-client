@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { history } from './../routers/AppRouter';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { login } from './../actions/auth';
 import {Grid, Row, Col, FormGroup, FormControl, ControlLabel} from 'react-bootstrap';
 import axios from "axios";
@@ -112,7 +113,7 @@ class LoginEmailPassword extends React.Component {
                                     access: "patient",
                                     token: token,
                                     auth: "normal",
-                                    loginTime: 0
+                                    loginTime: moment()
                                 }));
                                 history.push('/dashboard');
                             }.bind(this), 500);

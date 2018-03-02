@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import moment from 'moment';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
@@ -28,7 +29,11 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    store.dispatch(login({
+      console.log(user);
+      // displayName
+      // email
+      // photoURL
+      store.dispatch(login({
         uid: user.uid,
         email: "firebase",
         firstName: "firebase",
@@ -36,7 +41,7 @@ firebase.auth().onAuthStateChanged((user) => {
         access: "firebase",
         token: "firebase",
         auth: "firebase",
-        loginTime: 0
+        loginTime: moment()
     }));
     renderApp();
     if (history.location.pathname === '/') {

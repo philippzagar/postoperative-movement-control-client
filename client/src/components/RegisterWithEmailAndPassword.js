@@ -230,6 +230,18 @@ class RegisterWithEmailAndPassword extends React.Component {
                         <Grid>
                             <Row>
                                 <Col xs={12} sm={12} md={8} lg={6} xsOffset={0} smOffset={3} mdOffset={3} lgOffset={3}>
+                                    <h4>
+                                        <Link to="/">
+                                            Go home
+                                        </Link>
+
+                                        <br/>
+                                        <br/>
+                                    </h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={12} sm={12} md={8} lg={6} xsOffset={0} smOffset={3} mdOffset={3} lgOffset={3}>
                                     <h2>Register</h2>
                                 </Col>
                             </Row>

@@ -2,9 +2,14 @@ import React from 'react';
 import { Navbar, NavItem, Nav, NavDropdown, MenuItem} from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { startLogout } from '../actions/auth';
+import { startLogout, logout } from '../actions/auth';
 
-export const Header = ({ startLogout }) => (
+function beginLogout(startLogout, logout) {
+    logout();
+    startLogout();
+}
+
+export const Header = ({ startLogout, logout }) => (
     <div>
         <Navbar collapseOnSelect fixedTop>
             <Navbar.Header>
@@ -41,7 +46,7 @@ export const Header = ({ startLogout }) => (
                     </NavDropdown>
                 </Nav>
                 <Nav pullRight>
-                    <NavItem eventKey={1} onClick={startLogout}>
+                    <NavItem eventKey={1} onClick={() => beginLogout(startLogout, logout)}>
                         Logout
                     </NavItem>
                 </Nav>
@@ -51,7 +56,8 @@ export const Header = ({ startLogout }) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-    startLogout: () => dispatch(startLogout())
+    startLogout: () => dispatch(startLogout()),
+    logout: () => dispatch(logout())
 });
 
 export default connect(undefined, mapDispatchToProps)(Header)

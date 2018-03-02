@@ -12,7 +12,16 @@ export default (state = {}, action) => {
           loginTime: action.loginTime
       };
     case 'LOGOUT':
-      return {};
+      return {
+          uid: undefined,
+          email: undefined,
+          firstName: undefined,
+          lastName: undefined,
+          access: undefined,
+          token: undefined,
+          auth: undefined,
+          loginTime: undefined
+      };
     default:
       return state;
   }

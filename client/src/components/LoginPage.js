@@ -42,7 +42,6 @@ export const LoginPage = ({ startGoogleLogin, startFacebookLogin }) => (
                                 Reset password
                             </Button>
                         </Link>
-
                   </Jumbotron>
               </Col>
           </Row>
