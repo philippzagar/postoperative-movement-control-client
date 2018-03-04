@@ -125,7 +125,7 @@ class ResetPasswordEnterEmail extends React.Component {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col>
+                                <Col xs={12} sm={12} md={8} lg={6} xsOffset={0} smOffset={3} mdOffset={3} lgOffset={3}>
                                     <h4>
                                         <Link to="/">
                                             Go home
@@ -149,7 +149,7 @@ class ResetPasswordEnterEmail extends React.Component {
                                 </Col>
                             </Row>
                             <Row>
-                                <Col>
+                                <Col xs={12} sm={12} md={8} lg={6} xsOffset={0} smOffset={3} mdOffset={3} lgOffset={3}>
                                     <h4>
                                         <Link to="/">
                                             Go home

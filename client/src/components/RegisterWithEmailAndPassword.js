@@ -167,7 +167,9 @@ class RegisterWithEmailAndPassword extends React.Component {
                     lastName: this.state.lastName,
                     birth_day: this.state.birthDay,
                     birth_month: this.state.birthMonth,
-                    birth_year: this.state.birthYear
+                    birth_year: this.state.birthYear,
+                    firebase: false,
+                    firebaseToken: undefined
                 }).then((response) => {
                     if(response.data["status"] === "OK") {
                         console.log("User created");

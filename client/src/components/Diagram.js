@@ -40,7 +40,8 @@ class Diagram extends React.Component {
 
         instance.post("users/login", {
             email: "markus0793@web.de",
-            password: "markus1"
+            password: "markus1",
+            firebase: false
         }).then((response) => {
             const token = response.headers["x-auth"];
 

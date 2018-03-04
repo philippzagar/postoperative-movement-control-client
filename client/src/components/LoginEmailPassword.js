@@ -89,7 +89,8 @@ class LoginEmailPassword extends React.Component {
 
                 instance.post("users/login", {
                     email: this.state.email,
-                    password: this.state.pw
+                    password: this.state.pw,
+                    firebase: false
                 }).then((response) => {
                     if(response.data["status"] === "OK") {
                         console.log("Login successful");
@@ -110,6 +111,7 @@ class LoginEmailPassword extends React.Component {
                                     email: data.email,
                                     firstName: data.firstName,
                                     lastName: data.lastName,
+                                    photoURL: "NOT_SET",
                                     access: "patient",
                                     token: token,
                                     auth: "normal",
