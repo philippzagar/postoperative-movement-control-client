@@ -48,7 +48,7 @@ class LoginEmailPassword extends React.Component {
 
     getValidationStatePW() {
         const length = this.state.pw.length;
-        if (length > 6) return 'success';
+        if (length > 5) return 'success';
         else if (length > 4) return 'warning';
         else if (length > 0) return 'error';
         return null;
@@ -93,7 +93,7 @@ class LoginEmailPassword extends React.Component {
                     firebase: false
                 }).then((response) => {
                     if(response.data["status"] === "OK") {
-                        console.log("Login successful");
+
                         const token = response.headers["x-auth"];
 
                         instance = axios.create({
@@ -112,7 +112,7 @@ class LoginEmailPassword extends React.Component {
                                     firstName: data.firstName,
                                     lastName: data.lastName,
                                     photoURL: "NOT_SET",
-                                    access: "patient",
+                                    access: data.access,
                                     token: token,
                                     auth: "normal",
                                     loginTime: moment()

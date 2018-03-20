@@ -8,7 +8,6 @@ import configureStore from './store/configureStore';
 import { login, logout } from './actions/auth';
 import './styles/styles.scss';
 //import 'react-dates/lib/css/_datepicker.css';
-import '../node_modules/react-progress-button/react-progress-button.css'
 import { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
 
@@ -31,8 +30,8 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
       firebase.auth().currentUser.getIdToken(false).then((idToken) => {
-          console.log(idToken);
           const firstLastName = user.displayName.split(" ");
+
           let instance = axios.create({
               baseURL: 'https://zagar.spdns.org/',
               timeout: 5000
@@ -52,14 +51,13 @@ firebase.auth().onAuthStateChanged((user) => {
                   firebase: true
               }).then((response) => {
                   if (response.data["status"] === "OK") {
-
                       store.dispatch(login({
                           uid: user.uid,
                           email: user.email,
                           firstName: firstLastName[0],
                           lastName: firstLastName[1],
                           photoURL: user.photoURL,
-                          access: "DUMMY",
+                          access: "PATIENT",
                           token: response.headers["x-auth"],
                           auth: "firebase",
                           loginTime: moment()

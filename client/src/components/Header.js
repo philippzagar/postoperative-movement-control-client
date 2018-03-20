@@ -9,7 +9,7 @@ function beginLogout(startLogout, logout) {
     startLogout();
 }
 
-export const Header = ({ startLogout, logout }) => (
+export const Header = ({ startLogout, logout, firstName, lastName, photoURL, access }) => (
     <div>
         <Navbar collapseOnSelect fixedTop>
             <Navbar.Header>
@@ -46,7 +46,10 @@ export const Header = ({ startLogout, logout }) => (
                     </NavDropdown>
                 </Nav>
                 <Nav pullRight>
-                    <NavItem eventKey={1} onClick={() => beginLogout(startLogout, logout)}>
+                    <NavItem eventKey={5}>
+                        Hello {firstName}!
+                    </NavItem>
+                    <NavItem eventKey={4} onClick={() => beginLogout(startLogout, logout)}>
                         Logout
                     </NavItem>
                 </Nav>
@@ -55,9 +58,18 @@ export const Header = ({ startLogout, logout }) => (
     </div>
 );
 
+const mapStateToProps = (state) => {
+    return {
+        firstName: state.auth.firstName,
+        lastName: state.auth.lastName,
+        photoURL: state.auth.photoURL,
+        access: state.auth.access
+    };
+};
+
 const mapDispatchToProps = (dispatch) => ({
     startLogout: () => dispatch(startLogout()),
     logout: () => dispatch(logout())
 });
 
-export default connect(undefined, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
